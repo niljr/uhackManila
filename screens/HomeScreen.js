@@ -10,15 +10,20 @@ import {
   StatusBar,
   Button,
   Dimensions,
+  FlatList
 } from 'react-native';
 
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import AgeBracket from '../components/AgeBracket/AgeBracket';
+import Toy from '../components/Toy/Toy';
 import ageBracket from '../config/ageBracket';
 import Layout from '../constants/Layout';
+import Colors from '../constants/Colors';
 import { packageAge } from '../config/package';
+import toys from '../config/toys';
+import { Ionicons } from '@expo/vector-icons';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -27,6 +32,13 @@ export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  componentWillMount() {
+    toys.push({
+      toyCode: 'a12',
+      isMore: true
+    })
+  }
 
   goTo = () => {
     this.props.navigation.navigate('PackageScreen');
@@ -39,24 +51,42 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-       <StatusBar barStyle="light-content"/>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        <StatusBar barStyle="light-content"/>
+        <ScrollView style={[styles.container, {backgroundColor: '#fff'}]}>
           {/* { ageBracket.map(age => <AgeBracket age={age} key={age.ageCode} navigation={this.props.navigation} />)} */}
-          <Image source={require('../assets/images/gradeSchooler.jpg')} style={styles.image} resizeMode="cover" />
-          <View style={styles.overlay}>
-            <Text style={styles.title}>Hampangan</Text>
+          <View>
+            <Image source={require('../assets/images/gradeSchooler.jpg')} style={styles.image} resizeMode="cover" />
             <View style={styles.overlay}>
-              <Text style={styles.paragraph}>DON'T LET TOYS GO TO WASTE</Text>
-              <View style={styles.subscribe}>
-              <Button
-                onPress={this.goTo}
-                title="Know More"
-                color="#FFF"
-                accessibilityLabel="Learn more about this purple button"
-              />
+              <Image source={require('../assets/images/logo.png')} style={styles.logo} />
+              <View>
+                <Text style={styles.paragraph}>DON'T LET TOYS GO TO WASTE</Text>
+                <TouchableOpacity style={styles.buttonGreen} onPress={this.goTo}>
+                  <Text style={styles.buttonTextWhite}>KNOW MORE</Text>              
+                </TouchableOpacity>
               </View>
             </View>
           </View>
+
+          <View style={styles.products}>
+            <View style={Layout.containerCentered}>
+              <FlatList
+                data={toys}
+                numColumns={2}
+                keyExtractor={(item) => item.toyCode}
+                horizontal={false}              
+                renderItem={({item}) => (
+                  <Toy
+                    toyOption={item} 
+                    navigation={this.props.navigation} />
+                )}
+              />
+            </View>
+          </View>
+
+          <TouchableOpacity style={styles.seeMore}>
+            <Text style={{ color: '#808080', fontSize: 20}}>What's the cost? </Text>
+            <Text style={{ color: '#000', fontSize: 20 }}>It's a bargain</Text>
+          </TouchableOpacity>
 
           <View style={styles.packageLevel}>
             <TouchableOpacity  style={styles.packageOne} onPress={this.goToPackageInfo}>
@@ -107,28 +137,42 @@ const styles = StyleSheet.create({
     width: width
   },
   overlay: {
-    position: 'absolute',
+    ...Layout.positionAbsolute,
+    justifyContent: 'space-between'
+  },
+  logo: {
+    width: Layout.window.width * 0.4,
+    height: 29,
+    alignSelf: 'center',
+    marginTop: 30
   },
   title: {
-    position: 'absolute',
-    top: 50,
-    left: 140,
+    marginLeft: 20,    
     backgroundColor: 'transparent',
     color: '#FFF',
     fontSize: 20
   },
   paragraph: {
-    top: 100,
-    left: 30,
+    marginLeft: 20,
     backgroundColor: 'transparent',
     color: '#FFF',
     fontSize: 20,
     width: 150
   },
-  subscribe: {
-    top: 110,
-    left: 30,
-    backgroundColor: '#4CBE9A'
+  buttonGreen: {
+    ...Layout.containerCentered,
+    marginLeft: 20,
+    marginBottom: 40,
+    marginTop: 10,
+    backgroundColor: Colors.tintColor,
+    borderRadius: 50,
+    height: 40,
+    width: 150,
+    borderColor: '#fff',
+    borderWidth: 1
+  },
+  buttonTextWhite: {
+    color: '#fff'
   },
   packageLevel: {
     flexDirection: 'row',
@@ -154,5 +198,20 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     color: '#FFF',
     fontSize: 14
+  },
+  products: {
+    marginTop: 10,
+    marginBottom: 10
+    // width: Layout.window.width * 0.95,        
+  },
+  seeMore: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: '#F0F0F0',
+    alignItems: 'center',
+    paddingTop: 5,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 5
   }
 });
