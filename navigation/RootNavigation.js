@@ -15,16 +15,16 @@ import Colors from '../constants/Colors';
 
 const RootStackNavigator = StackNavigator(
   {
+    Main: {
+      screen: MainTabNavigator,
+      headerMode: 'none'      
+    },
     ToyListScreen: { screen: ToyListScreen },    
     PackageInfoScreen: { screen: PackageInfo },
     IntroScreen: { screen: IntroScreen },    
     WelcomeScreen: { screen: WelcomeScreen },    
     LoginScreen: { screen: LoginScreen },    
     RegisterScreen: { screen: RegisterScreen }, 
-    Main: {
-      screen: MainTabNavigator,
-      headerMode: 'none'      
-    },
     PackageScreen: { screen: PackageScreen },
   },
   {
