@@ -49,16 +49,16 @@ export default class ToyDetailsScreen extends PureComponent {
 
           <View style={styles.bottomLevel}>
             <View>
-              <Text style={styles.bottomLevelTitle}>Toys</Text>
-              <Text style={styles.bottomLevelSubtitle}>4</Text>
+              <Text style={styles.bottomLevelTitle}>Age</Text>
+              <Text style={styles.bottomLevelSubtitle}><Ionicons name="ios-person-outline" size={20} color={color.tintColor} />3-6</Text>
             </View>
             <View>
-              <Text style={styles.bottomLevelTitle}>Commitments</Text>
-              <Text style={styles.bottomLevelSubtitle}>3 Month</Text>
+              <Text style={styles.bottomLevelTitle}>Ratings</Text>
+              <Text style={styles.bottomLevelSubtitle}><Ionicons name="ios-star" size={20} color="yellow" />5</Text>
             </View>
             <View>
-              <Text style={styles.bottomLevelTitle}>Delivery</Text>
-              <Text style={styles.bottomLevelSubtitle}>Free</Text>
+              <Text style={styles.bottomLevelTitle}>Available</Text>
+              <Text style={styles.bottomLevelSubtitle}><Ionicons name="ios-checkmark" size={20} color="green" />Yes</Text>
             </View>
           </View>
         </ScrollView>

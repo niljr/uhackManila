@@ -41,7 +41,7 @@ export default class HomeScreen extends React.Component {
   }
 
   goTo = () => {
-    this.props.navigation.navigate('PackageScreen');
+    // this.props.navigation.navigate('PackageScreen');
   }
 
   goToPackageInfo = () => {
