@@ -1,40 +1,53 @@
 import Layout from '../../constants/Layout';
+import Colors from '../../constants/Colors';
 
 export default {
   container: {
-    ...Layout.containerCentered,    
-    height: Layout.window.height * 0.5,
-    width: Layout.window.width * 0.93,
-    backgroundColor: 'green',
+    // ...Layout.containerCentered,    
+    backgroundColor: '#fff',
+    height: Layout.window.width * 0.65,
+    width: Layout.window.width * 0.48,
     borderRadius: 5,
-    marginTop: 7,
-    marginBottom: 7,
-    alignSelf: 'center'
+    margin: 3,
+    alignSelf: 'center',
+    borderColor: '#F5F5F5',
+    borderWidth: 1
   },
   image: {
-    ...Layout.containerCentered,
-    height: Layout.window.height * 0.5,
     borderRadius: 5,
-    width: Layout.window.width * 0.93,    
+    height: Layout.window.width * 0.48,
+    width: Layout.window.width * 0.475,    
   }, 
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0, 
-    height: Layout.window.height * 0.5,
-    borderRadius: 5,
-    width: Layout.window.width * 0.93,    
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    padding: 30
-  },
   label: {
-    fontSize: 30,
+    // fontSize: 17,
     color: '#36BA8A'
   },
-  age: {
-    color: 'lightgray',
+  price: {
+    color: '#404040',
     fontSize: 15
+  },
+  details: { 
+    backgroundColor: '#F5F5F5',
+    height: Layout.window.width * 0.18,    
+    width: Layout.window.width * 0.475,        
+    marginTop: -4,
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
+    padding: 5
+  },
+  moreContainer: {
+    ...Layout.containerCentered,
+    backgroundColor: '#fff',
+    height: Layout.window.width * 0.65,
+    width: Layout.window.width * 0.48,
+    borderRadius: 5,
+    margin: 3,
+    alignSelf: 'center',
+    borderColor: Colors.secondary,
+    borderWidth: 0.5
+  },
+  more: {
+    color: Colors.secondary,
+    fontSize: 18
   }
 }
