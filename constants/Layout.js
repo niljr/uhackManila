@@ -8,5 +8,10 @@ export default {
     width,
     height,
   },
+  heightThird: height * 0.3,
   isSmallDevice: width < 375,
+  containerCentered: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 };
