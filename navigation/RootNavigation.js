@@ -11,6 +11,8 @@ import PackageScreen from '../screens/PackageScreen';
 import PackageInfo from '../screens/PackageInfo';
 import ToyListScreen from '../screens/ToyListScreen';
 import ToyDetailScreen from '../screens/ToyDetailScreen';
+import ShoppingCartScreen from '../screens/ShoppingCartScreen';
+import DeliveryAndPaymentScreen from '../screens/DeliveryAndPaymentScreen';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 import Colors from '../constants/Colors';
 
@@ -22,6 +24,8 @@ const RootStackNavigator = StackNavigator(
     WelcomeScreen: { screen: WelcomeScreen },    
     LoginScreen: { screen: LoginScreen },    
     RegisterScreen: { screen: RegisterScreen }, 
+    DeliveryAndPaymentScreen: { screen: DeliveryAndPaymentScreen },
+    ShoppingCartScreen: { screen: ShoppingCartScreen },
     Main: {
       screen: MainTabNavigator,
       headerMode: 'none'      
