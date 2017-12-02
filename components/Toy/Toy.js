@@ -5,19 +5,28 @@ import styles from './styles';
 class Toy extends Component {
   render() {
     const { toyOption } = this.props;
-    return(
+
+    if (toyOption.isMore) {
+      return (
+        <TouchableOpacity style={styles.moreContainer} onPress={() => this.props.navigation.navigate('ToyListScreen')}>
+          <Text style={styles.more}>See More Toys</Text>
+        </TouchableOpacity>
+      )
+    }
+
+    return (
       <TouchableOpacity style={styles.container} onPress={this.onPress}>
-        <Image source={toyOption.image} style={styles.image} borderRadius={5} />
-        <View style={styles.overlay}>
+        <Image source={toyOption.image} style={styles.image} />
+        <View style={styles.details}>
           <Text style={styles.label}>{toyOption.name.toUpperCase()}</Text>
-          <Text style={styles.age}>{toyOption.price}</Text>
+          {toyOption.price ? <Text style={styles.price}>PHP {toyOption.price}</Text> : null}
         </View>
       </TouchableOpacity>
     );
   }
 
   onPress = () => {
-    // this.props.navigation.navigate('PackageScreen');
+    this.props.navigation.navigate('ToyDetailScreen', { toyDetail: this.props.toyOption });
   }
 }
 

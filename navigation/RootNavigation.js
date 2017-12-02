@@ -10,14 +10,15 @@ import RegisterScreen from '../screens/RegisterScreen';
 import PackageScreen from '../screens/PackageScreen';
 import PackageInfo from '../screens/PackageInfo';
 import ToyListScreen from '../screens/ToyListScreen';
+import ToyDetailScreen from '../screens/ToyDetailScreen';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 import Colors from '../constants/Colors';
 
 const RootStackNavigator = StackNavigator(
   {
+    IntroScreen: { screen: IntroScreen },    
     ToyListScreen: { screen: ToyListScreen },    
     PackageInfoScreen: { screen: PackageInfo },
-    IntroScreen: { screen: IntroScreen },    
     WelcomeScreen: { screen: WelcomeScreen },    
     LoginScreen: { screen: LoginScreen },    
     RegisterScreen: { screen: RegisterScreen }, 
@@ -25,6 +26,7 @@ const RootStackNavigator = StackNavigator(
       screen: MainTabNavigator,
       headerMode: 'none'      
     },
+    ToyDetailScreen: { screen: ToyDetailScreen },   
     PackageScreen: { screen: PackageScreen },
   },
   {

@@ -10,12 +10,12 @@ export default [
     toyCode: 2,
     name: 'Calculation',
     image: require('../assets/images/calculation.jpg'),
-    price: '150',
+    // price: '150',
     quantity: 4
   },
   {
     toyCode: 3,
-    name: 'Laugh & Learn Puppys Crawl-Along Musical Ball',
+    name: 'Laugh & Learn Crawl-Along Musical Ball',
     image: require('../assets/images/laugh&learn.jpg'),
     price: '550',
     quantity: 4
@@ -43,7 +43,7 @@ export default [
   },
   {
     toyCode: 7,
-    name: 'Classic Toy Wooden Bead Maze Child Beads',
+    name: 'Classic Toy Wooden Bead Maze Beads',
     image: require('../assets/images/woodenbead.jpg'),
     price: '480',
     quantity: 2
