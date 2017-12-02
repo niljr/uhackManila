@@ -12,6 +12,7 @@
     "expo": "^23.0.0",
     "react": "16.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",
+    "react-native-onboarding-swiper": "^0.3.1",
     "react-navigation": "^1.0.0-beta.19"
   },
   "devDependencies": {
