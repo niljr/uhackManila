@@ -9,10 +9,13 @@ import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import PackageScreen from '../screens/PackageScreen';
 import PackageInfo from '../screens/PackageInfo';
+import ToyListScreen from '../screens/ToyListScreen';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const RootStackNavigator = StackNavigator(
   {
+    ToyListScreen: { screen: ToyListScreen },    
+    PackageInfoScreen: { screen: PackageInfo },
     IntroScreen: { screen: IntroScreen },    
     WelcomeScreen: { screen: WelcomeScreen },    
     LoginScreen: { screen: LoginScreen },    
@@ -22,7 +25,6 @@ const RootStackNavigator = StackNavigator(
       headerMode: 'none'      
     },
     PackageScreen: { screen: PackageScreen },
-    PackageInfoScreen: { screen: PackageInfo }
   },
   {
     navigationOptions: () => ({
