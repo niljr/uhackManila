@@ -98,12 +98,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     paddingTop:10,
+    width: width * 0.7
   },
   inner: {
     padding: 10,
     borderWidth:1,
     borderRadius: 50,
-    borderColor: '#BFE7D9'
+    borderColor: '#BFE7D9',
+    height: 40
   },
   description: {
     fontWeight: '100'
