@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { ScrollView, StyleSheet, Text, View, StatusBar, Image, Dimensions, Button, Alert } from 'react-native';
+import { FlatList, ScrollView, StyleSheet, Text, View, StatusBar, Image, Dimensions, Button, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import Toy from '../components/Toy/Toy';
@@ -16,6 +16,10 @@ export default class ToyList extends PureComponent {
     headerTitleStyle: { color: color.tintColor },
     headerRight: <Ionicons name="ios-search-outline" size={32} color={color.tintColor}/>
   };
+
+  componentWillMount() {
+    toys.pop();
+  }
 
   goTo = () => {
     Alert.alert(
@@ -34,12 +38,17 @@ export default class ToyList extends PureComponent {
       <View style={styles.container}>
       <StatusBar barStyle="dark-content"/>
         <ScrollView style={styles.container2} contentContainerStyle={styles.contentContainer}>
-        {toys.map(item => (
-             <Toy
-               toyOption={item} 
-               key={item.toyCode} 
-               navigation={this.props.navigation} />
-           ))}
+        <FlatList
+          data={toys}
+          numColumns={2}
+          keyExtractor={(item) => item.toyCode}
+          horizontal={false}              
+          renderItem={({item}) => (
+            <Toy
+              toyOption={item} 
+              navigation={this.props.navigation} />
+          )}
+        />
         </ScrollView>
       </View>
     )
