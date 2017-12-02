@@ -1,32 +1,32 @@
 import React, { PureComponent } from 'react';
-import { ScrollView, StyleSheet, Text, View, StatusBar, Image, Dimensions, Button, Alert } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, StatusBar, Image, Dimensions, Button, Alert, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import Package from '../components/Package/Package';
 import packages from '../config/package';
 import color from '../constants/Colors';
+import Layout from '../constants/Layout';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
 export default class ShoppingCardScreen extends PureComponent {
   static navigationOptions = {
-    headerStyle: { backgroundColor: '#FFF' },
-    headerTitleStyle: { color: color.tintColor },
+    // headerStyle: { backgroundColor: '#FFF' },
+    // headerTitleStyle: { color: color.tintColor },
     title: "Shopping Cart",
   };
 
   goTo = () => {
     Alert.alert(
-      'Subscribe to',
-      'PACKAGE A',
+      'Proceed with checkout?',
+      'Total amount: PHP 999.00',
       [
         {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
         {text: 'Yes', onPress: () => this.props.navigation.navigate('DeliveryAndPaymentScreen')},
       ],
       { cancelable: false }
     )
-    
   }
 
   render() {
@@ -68,13 +68,14 @@ export default class ShoppingCardScreen extends PureComponent {
           </View>
           
         </ScrollView>
-          <View style={{backgroundColor: '#4CBE9A', flexDirection: 'row', justifyContent: 'center' }}>
-            <Button
-              onPress={this.goTo}
-              title="PROCESS CHECKOUT"
-              color='#FFF'
-              accessibilityLabel="Learn more about this purple button"
-            />
+          <View style={{backgroundColor: '#4CBE9A', flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View style={{ backgroundColor: color.tabIconDefault, padding: 5}}>
+              <Text style={{ fontSize: 9 }}>Total Price</Text>
+              <Text style={{ fontSize: 12 }}>PHP 999.00</Text>              
+            </View>
+            <TouchableOpacity style={[Layout.containerCentered, {flex: 1}]} onPress={this.goTo}>
+              <Text style={{color: '#fff'}}>PROCESS CHECKOUT</Text>
+            </TouchableOpacity>
           </View>
       </View>
     )

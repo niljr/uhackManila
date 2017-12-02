@@ -11,8 +11,8 @@ const height = Dimensions.get('window').height;
 
 export default class DeliveryAndPaymentScreen extends PureComponent {
   static navigationOptions = {
-    headerStyle: { backgroundColor: '#FFF' },
-    headerTitleStyle: { color: color.tintColor },
+    // headerStyle: { backgroundColor: '#FFF' },
+    // headerTitleStyle: { color: color.tintColor },
     title: "Delivery and Payment",
   };
 
