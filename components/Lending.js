@@ -1,8 +1,14 @@
 import React, { PureComponent } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import Layout from '../constants/Layout';
+import Toy from './Toy/Toy';
+import toys from '../config/toys';
 
 export default class Lending extends PureComponent {
+  componentWillMount() {
+    toys.pop();
+  }
   
   goToPackageInfo() {
     null
@@ -30,6 +36,23 @@ export default class Lending extends PureComponent {
             <Text>Php 3,200.00  <Ionicons name="ios-arrow-round-forward" size={23} color="red"/></Text>
           </View>
         </TouchableOpacity>
+
+        <View style={styles.products}>
+            <View style={Layout.containerCentered}>
+              <FlatList
+                data={toys}
+                numColumns={2}
+                keyExtractor={(item) => item.toyCode}
+                horizontal={false}              
+                renderItem={({item}) => (
+                  <Toy
+                    toyOption={item} 
+                    navigation={this.props.navigation} />
+                )}
+              />
+            </View>
+          </View>
+
       </View>
     )
   }
@@ -49,5 +72,10 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     flexDirection: 'row',
     justifyContent: 'space-between'
+  },
+  products: {
+    marginTop: 10,
+    marginBottom: 10
+    // width: Layout.window.width * 0.95,        
   },
 })
