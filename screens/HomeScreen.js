@@ -58,6 +58,7 @@ export default class HomeScreen extends React.Component {
             <Image source={require('../assets/images/gradeSchooler.jpg')} style={styles.image} resizeMode="cover" />
             <View style={styles.overlay}>
               <Image source={require('../assets/images/logo.png')} style={styles.logo} />
+              <Ionicons name='md-cart' style={styles.cart} onPress={() => this.props.navigation.navigate('ShoppingCartScreen')}/>
               <View>
                 <Text style={styles.paragraph}>DON'T LET TOYS GO TO WASTE</Text>
                 <TouchableOpacity style={styles.buttonGreen} onPress={this.goTo}>
@@ -90,7 +91,7 @@ export default class HomeScreen extends React.Component {
 
           <View style={styles.packageLevel}>
             <TouchableOpacity  style={styles.packageOne} onPress={this.goToPackageInfo}>
-              <Image source={require('../assets/images/preSchool.jpg')} style={{height: height / 3, width: width / 2.04, paddingRight: 5 }}    />
+              <Image source={require('../assets/images/baby.jpg')} style={{height: height / 3, width: width / 2.04, paddingRight: 5 }}    />
               <Text style={styles.packageTitle}>PACKAGE A</Text>           
               <Text style={styles.packagePrice}>P 999.00</Text>           
             </TouchableOpacity>
@@ -108,7 +109,7 @@ export default class HomeScreen extends React.Component {
               <Text style={styles.packagePrice}>P 1,899.00</Text>           
             </View>
             <View style={styles.packageOne}>
-              <Image source={require('../assets/images/toddler.jpg')}  style={{height: height / 3, width: width / 2.1, paddingLeft: 5}}  />           
+              <Image source={require('../assets/images/gradeSchooler.jpg')}  style={{height: height / 3, width: width / 2.1, paddingLeft: 5}}  />           
               <Text style={styles.packageTitle}>CUSTOMIZE</Text>           
               {/* <Text style={styles.packagePrice}>P 1,399.00</Text>            */}
             </View>
@@ -213,5 +214,13 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     paddingBottom: 5
+  },
+  cart: {
+    backgroundColor: 'transparent',
+    fontSize: 30,
+    color: '#fff',
+    position: 'absolute',
+    top: 25,
+    right: 10
   }
 });
