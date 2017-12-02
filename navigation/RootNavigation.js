@@ -8,6 +8,7 @@ import WelcomeScreen from '../screens/WelcomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import PackageScreen from '../screens/PackageScreen';
+import PackageInfo from '../screens/PackageInfo';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const RootStackNavigator = StackNavigator(
@@ -18,8 +19,10 @@ const RootStackNavigator = StackNavigator(
     RegisterScreen: { screen: RegisterScreen },    
     Main: {
       screen: MainTabNavigator,
+      headerMode: 'none'      
     },
-    PackageScreen: { screen: PackageScreen }
+    PackageScreen: { screen: PackageScreen },
+    PackageInfoScreen: { screen: PackageInfo }
   },
   {
     navigationOptions: () => ({
