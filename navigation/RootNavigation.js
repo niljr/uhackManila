@@ -11,6 +11,7 @@ import PackageScreen from '../screens/PackageScreen';
 import PackageInfo from '../screens/PackageInfo';
 import ToyListScreen from '../screens/ToyListScreen';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
+import Colors from '../constants/Colors';
 
 const RootStackNavigator = StackNavigator(
   {
@@ -19,7 +20,7 @@ const RootStackNavigator = StackNavigator(
     IntroScreen: { screen: IntroScreen },    
     WelcomeScreen: { screen: WelcomeScreen },    
     LoginScreen: { screen: LoginScreen },    
-    RegisterScreen: { screen: RegisterScreen },    
+    RegisterScreen: { screen: RegisterScreen }, 
     Main: {
       screen: MainTabNavigator,
       headerMode: 'none'      
@@ -30,7 +31,12 @@ const RootStackNavigator = StackNavigator(
     navigationOptions: () => ({
       headerTitleStyle: {
         fontWeight: 'normal',
+        color: '#fff',
       },
+      headerStyle: {
+        backgroundColor: Colors.tintColor
+      },
+      headerTintColor: '#fff',
     }),
   }
 );
