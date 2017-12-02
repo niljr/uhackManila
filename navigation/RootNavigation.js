@@ -3,11 +3,19 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
+import IntroScreen from '../screens/IntroScreen';
+import WelcomeScreen from '../screens/WelcomeScreen';
+import LoginScreen from '../screens/LoginScreen';
+import RegisterScreen from '../screens/RegisterScreen';
 import PackageScreen from '../screens/PackageScreen';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const RootStackNavigator = StackNavigator(
   {
+    IntroScreen: { screen: IntroScreen },    
+    WelcomeScreen: { screen: WelcomeScreen },    
+    LoginScreen: { screen: LoginScreen },    
+    RegisterScreen: { screen: RegisterScreen },    
     Main: {
       screen: MainTabNavigator,
     },
