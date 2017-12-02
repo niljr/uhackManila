@@ -18,7 +18,7 @@ export default class WelcomeScreen extends PureComponent {
             <Image source={require('../assets/images/logo.png')} style={styles.logo} />
           </View>
           <View style={styles.caption}>
-            <Text style={[styles.text, { width: Layout.window.width * 0.7, textAlign: 'center'}]}>Hampangan is  sdfas afs asf asf saf asfasf asf aadfasfasfas as fasf sf</Text>
+            <Text style={[styles.text, { width: Layout.window.width * 0.8, textAlign: 'center'}]}>Hampangan is where you can find affordable quality toys that you and your kid can enjoy.</Text>
             <TouchableOpacity style={styles.buttonWhite} onPress={() => this.props.navigation.navigate('LoginScreen')}>
               <Text style={styles.buttonTextGreen}>ENTER</Text>              
             </TouchableOpacity>
