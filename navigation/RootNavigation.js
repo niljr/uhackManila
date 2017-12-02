@@ -4,14 +4,17 @@ import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
 import PackageScreen from '../screens/PackageScreen';
+import PackageInfo from '../screens/PackageInfo';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const RootStackNavigator = StackNavigator(
   {
     Main: {
       screen: MainTabNavigator,
+      headerMode: 'none'      
     },
-    PackageScreen: { screen: PackageScreen }
+    PackageScreen: { screen: PackageScreen },
+    PackageInfoScreen: { screen: PackageInfo }
   },
   {
     navigationOptions: () => ({
