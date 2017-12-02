@@ -16,7 +16,7 @@ import Colors from '../constants/Colors';
 
 const RootStackNavigator = StackNavigator(
   {
-    IntroScreen: { screen: IntroScreen },    
+    IntroScreen: { screen: IntroScreen },  
     ToyListScreen: { screen: ToyListScreen },    
     PackageInfoScreen: { screen: PackageInfo },
     WelcomeScreen: { screen: WelcomeScreen },    

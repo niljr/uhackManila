@@ -6,13 +6,16 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Colors from '../constants/Colors';
 
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import LendScreen from '../screens/LendScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
 export default TabNavigator(
   {
     Home: {
       screen: HomeScreen,
+    },
+    Lend: {
+      screen: LendScreen,
     },
     Profile: {
       screen: ProfileScreen,
@@ -29,7 +32,10 @@ export default TabNavigator(
               Platform.OS === 'ios'
                 ? `ios-home${focused ? '' : '-outline'}`
                 : 'md-home';
-                
+            break;
+          case 'Lend':
+            iconName =
+            Platform.OS === 'ios' ? `ios-camera${focused ? '' : '-outline'}` : 'md-camera';
             break;
           case 'Profile':
             iconName =
